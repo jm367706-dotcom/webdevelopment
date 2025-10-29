@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Checkbox</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .checkbox-container input {
+      display: none;
+    }
+
+    .checkmark {
+      width: 25px;
+      height: 25px;
+      background-color: #fff;
+      border: 2px solid #4CAF50;
+      border-radius: 6px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .checkmark::after {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 2px;
+      width: 6px;
+      height: 12px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      transform: scale(0) rotate(45deg);
+      transition: all 0.3s ease;
+    }
+
+    .checkbox-container input:checked + .checkmark {
+      background-color: #4CAF50;
+      border-color: #4CAF50;
+      transform: scale(1.1);
+      box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+    }
+
+    .checkbox-container input:checked + .checkmark::after {
+      transform: scale(1) rotate(45deg);
+    }
+
+    .checkbox-label {
+      margin-left: 10px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <label class="checkbox-container">
+    <input type="checkbox">
+    <span class="checkmark"></span>
+    <span class="checkbox-label">Subscribe to Newsletter</span>
+  </label>
+</body>
+</html>
